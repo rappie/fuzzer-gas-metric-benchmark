@@ -1,27 +1,21 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {Benchmark} from "src/Benchmark.sol";
 
-contract Token is ERC20 {
-    constructor() ERC20("Token", "TKN") {}
-
-    function mint(address to, uint256 amount) public {
-        _mint(to, amount);
-    }
-}
-
-contract Benchmark is Test {
-    Token token;
+contract BenchmarkTest is Test {
+    Benchmark benchmark;
 
     function setUp() public {
-        token = new Token();
+        benchmark = new Benchmark();
     }
 
     function test_benchmark() public {
-        token.mint(address(this), 1000);
-        console.log("token balance: ", token.balanceOf(address(this)));
+        uint gasBefore = gasleft();
+        benchmark.run();
+        uint gasAfter = gasleft();
+        console.log("Gas used: ", gasBefore - gasAfter);
     }
 }
