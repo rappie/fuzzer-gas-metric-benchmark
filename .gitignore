@@ -1,14 +1,30 @@
-# Compiler files
-cache/
-out/
+# directories
+cache
+coverage
+node_modules
+out
+echidna-corpus
+medusa-corpus
+crytic-export
 
-# Ignores development broadcast logs
-!/broadcast
-/broadcast/*/31337/
-/broadcast/**/dry-run/
+# files
+*.env*
+**/.envrc
+*.log
+.DS_Store
+.pnp.*
+lcov.info
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+*-cover.txt
+bun.lockb
 
-# Docs
-docs/
+# broadcasts
+!broadcast
+broadcast/*
+broadcast/*/31337/
 
-# Dotenv file
-.env
+# IDE
+.idea
+.vscode
