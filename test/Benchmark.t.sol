@@ -13,9 +13,7 @@ contract BenchmarkTest is Test {
     }
 
     function test_benchmark() public {
-        uint gasBefore = gasleft();
-        benchmark.run();
-        uint gasAfter = gasleft();
-        console.log("Gas used: ", gasBefore - gasAfter);
+        uint256 g = benchmark.bench();
+        console.log("Gas used", g);
     }
 }
