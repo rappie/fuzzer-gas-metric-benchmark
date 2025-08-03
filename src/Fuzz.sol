@@ -13,11 +13,8 @@ contract Fuzz is FuzzBase {
     }
 
     function fuzz_benchmark() public payable {
-        uint gasBefore = gasleft();
-        benchmark.run();
-        uint gasAfter = gasleft();
-        fl.log("Gas used", gasBefore - gasAfter);
-
+        uint256 g = benchmark.bench();
+        fl.log("Gas used", g);
         fl.t(false, "Benchmark Complete");
     }
 }

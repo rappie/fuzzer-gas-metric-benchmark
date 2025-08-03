@@ -10,6 +10,13 @@ contract Benchmark {
         token = new Token();
     }
 
+    function bench() public returns (uint256) {
+        uint gasBefore = gasleft();
+        this.run();
+        uint gasAfter = gasleft();
+        return gasBefore - gasAfter;
+    }
+
     function run() public {
         for (uint256 i = 0; i < 100; i++) {
             token.mint(msg.sender, pow(2, i));
