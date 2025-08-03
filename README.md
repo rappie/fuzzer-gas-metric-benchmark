@@ -1,3 +1,6 @@
+> **🛠️ Update (Aug 2025):**  
+> The gas metric issue for **Echidna** has been fixed in version **2.2.8**. If you're running a benchmark, make sure you're on the latest version to get accurate results.
+
 # Fuzzer Gas Metric Benchmark
 
 This repository aims to analyze and compare the gas usage metrics between **Echidna**, **Medusa**, and **Foundry**. 
